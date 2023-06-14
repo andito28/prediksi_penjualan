@@ -9,15 +9,12 @@ include "koneksi.php";
         $result = mysqli_num_rows($cek);
         $data = mysqli_fetch_array($cek);
         if ($result > 0) {
-            if ($data['level']=='Admin Gudang') {
+            if ($data['level']=='Admin Aplication') {
                 $_SESSION['masuk'] = $user;
                 header("location:dashboard.php");
             }elseif ($data['level']=='Accounting') {
                 $_SESSION['masuk'] = $user;
                 header("location:dashboard_accounting.php");
-            }elseif ($data['level']=='Owner') {
-                $_SESSION['masuk'] = $user;
-                header("location:dashboard_owner.php");
             }
         }else if ($result ==0) {
             echo "<script>alert('Proses Login Gagal, Email / Username Atau Password Yang Anda Masukkan Tidak Terdaftar');

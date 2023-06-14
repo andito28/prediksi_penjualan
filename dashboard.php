@@ -36,24 +36,21 @@ session_start();
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="dashboard.php?p=data_pengguna">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Data Pengguna</span></a>
+        <a class="nav-link" href="dashboard.php?p=data_penjualan">
+        <i class="fas fa-fw fa-table"></i>
+          <span>Data Penjualan</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
-          aria-expanded="true" aria-controls="collapseBootstrap">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Data Persediaan</span>
-        </a>
-        <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="dashboard.php?p=data_barang">Data Barang</a>
-            <a class="collapse-item" href="dashboard.php?p=data_barang_masuk">Data Barang Masuk</a>
-            <a class="collapse-item" href="dashboard.php?p=data_barang_keluar">Data Barang Keluar</a>
-          </div>
-        </div>
+        <a class="nav-link" href="dashboard.php?p=data_stok">
+        <i class="fas fa-fw fa-table"></i>
+          <span>Data Stok</span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="dashboard.php?p=data_prediksi">
+        <i class="fas fa-fw fa-table"></i>
+          <span>Data prediksi</span></a>
+      </li>
+
     </ul>
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -100,11 +97,11 @@ session_start();
                 <span class="ml-2 d-none d-lg-inline text-white small"><?php echo $data['nama_pengguna'];?> (<?php echo $data['level'];?>)</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="dashboard.php?p=edit_uspas&id=<?php echo $data['id_pengguna'];?>">
+                <!-- <a class="dropdown-item" href="dashboard.php?p=edit_uspas&id=<?php echo $data['id_pengguna'];?>">
                   <i class="fas fa-edit fa-sm fa-fw mr-2 text-gray-400"></i>
                   Edit Username & Password
                 </a>
-                <div class="dropdown-divider"></div>
+                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="proses_logout.php">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
