@@ -150,39 +150,60 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                     <h6 class="m-0 font-weight-bold text-primary">Tabel Data Prediksi</h6>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive p-3">
-                        <table class="table align-items-center table-hover table-bordered" id="dataTableHover">
-                            <thead class="thead-light">
-                            <tr>
-                                <th>Bulan</th>
-                                <th>Terjual</th>
-                                <th>Tahun</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <form action="dashboard_accounting.php?p=data_prediksi" method="post">
+                        <div class="table-responsive p-3">
+                            <table class="table align-items-center table-hover table-bordered" id="dataTableHover">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Bulan</th>
+                                    <th>Terjual</th>
+                                    <th>Tahun</th>
+                                </tr>
+                                </thead>
+                                <tbody>
 
-                            <?php
+                                <?php
+                                if ($response != null) {
+                                    $dataArray = json_decode($response, true); // Convert JSON response to an associative array
 
-                            if ($response != null) {
-                                $dataArray = json_decode($response, true); // Convert JSON response to an associative array
+                                    foreach ($dataArray['prediksi'] as $row) {
 
-                                foreach ($dataArray['prediksi'] as $row) {
+                                        ?>
+                                        <input type="hidden" name="bulan[]" value="<?php echo $row['bulan']; ?>">
+                                        <input type="hidden" name="jumlah_item[]" value="<?php echo $row['jumlah_item']; ?>">
+                                        <input type="hidden" name="tahun[]" value="<?php echo $row['tahun']; ?>">
+                                        <tr>
+                                            <td><?php echo $row['bulan']; ?></td>
+                                            <td><?php echo $row['jumlah_item']; ?></td>
+                                            <td><?php echo $row['tahun']; ?></td>
 
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $row['bulan']; ?></td>
-                                        <td><?php echo $row['jumlah_item']; ?></td>
-                                        <td><?php echo $row['tahun']; ?></td>
-
-                                    </tr>
-                                    <?php
+                                        </tr>
+                                        <?php
+                                    }
                                 }
-                            }
 
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="button-save p-3">
+                            <input type="hidden" name="barang" value="<?php echo $nama_barang ?>">
+                            <button type="submit" name="save_pridiksi" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
+                    <?php
+                    if (isset($_POST['save_pridiksi'])) {
+                        for($i = 0; $i < count($_POST['bulan']); $i++){
+                            $nama_barang = $_POST['barang'];
+                            $bulan = $_POST['bulan'][$i];
+                            $jumlah_item = $_POST['jumlah_item'][$i];
+                            $tahun = $_POST['tahun'][$i];
+                            $query = "INSERT INTO tbl_prediksi (nama_barang, bulan, jumlah_item, tahun) VALUES ('$nama_barang', '$bulan', $jumlah_item, $tahun)";
+                            mysqli_query($connect, $query);
+                        }
+
+                    }
+                    ?>
                 </div>
             </div>
         </div>
