@@ -9,9 +9,9 @@ if (isset($_POST['masuk'])) {
     $result = mysqli_num_rows($cek);
     $data = mysqli_fetch_array($cek);
     if ($result > 0) {
-        if ($data['level'] == 'Admin Aplication') {
+        if ($data['level'] == 'Owner') {
             $_SESSION['masuk'] = $user;
-            header("location:dashboard.php");
+            header("location:dashboard_owner.php");
         } elseif ($data['level'] == 'Accounting') {
             $_SESSION['masuk'] = $user;
             header("location:dashboard_accounting.php");
