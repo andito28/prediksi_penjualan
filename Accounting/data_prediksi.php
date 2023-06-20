@@ -113,7 +113,7 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                                 fclose($file);
                                 // Melakukan POST API menggunakan file CSV
 
-                                $apiUrl = 'https://2939-2001-448a-7025-47e7-c840-54e3-f715-a529.ngrok-free.app/prediksi';  // Ganti dengan URL API yang sesuai
+                                $apiUrl = 'https://1a74-103-105-32-81.ngrok-free.app/prediksi';  // Ganti dengan URL API yang sesuai
                                 $postFields = [
                                     'file' => new CURLFile($filepath, 'text/csv', $filename)
                                 ];
@@ -150,52 +150,39 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                     <h6 class="m-0 font-weight-bold text-primary">Tabel Data Prediksi</h6>
                 </div>
                 <div class="card-body">
-                    <form action="dashboard_accounting.php?p=data_prediksi" method="post">
-                        <div class="table-responsive p-3">
-                            <table class="table align-items-center table-hover table-bordered" id="dataTableHover">
-                                <thead class="thead-light">
-                                <tr>
-                                    <th>Bulan</th>
-                                    <th>Terjual</th>
-                                    <th>Tahun</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                    <div class="table-responsive p-3">
+                        <table class="table align-items-center table-hover table-bordered" id="dataTableHover">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>Bulan</th>
+                                <th>Terjual</th>
+                                <th>Tahun</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                                <?php
-                                if ($response != null) {
-                                    $dataArray = json_decode($response, true); // Convert JSON response to an associative array
+                            <?php
 
-                                    foreach ($dataArray['prediksi'] as $row) {
+                            if ($response != null) {
+                                $dataArray = json_decode($response, true); // Convert JSON response to an associative array
 
-                                        ?>
-                                        <input type="hidden" name="bulan[]" value="<?php echo $row['bulan']; ?>">
-                                        <input type="hidden" name="jumlah_item[]" value="<?php echo $row['jumlah_item']; ?>">
-                                        <input type="hidden" name="tahun[]" value="<?php echo $row['tahun']; ?>">
-                                        <tr>
-                                            <td><?php echo $row['bulan']; ?></td>
-                                            <td><?php echo $row['jumlah_item']; ?></td>
-                                            <td><?php echo $row['tahun']; ?></td>
+                                foreach ($dataArray['prediksi'] as $row) {
 
-                                        </tr>
-                                        <?php
-                                    }
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $row['bulan']; ?></td>
+                                        <td><?php echo $row['jumlah_item']; ?></td>
+                                        <td><?php echo $row['tahun']; ?></td>
+
+                                    </tr>
+                                    <?php
                                 }
+                            }
 
-                                ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="button-save p-3">
-                            <input type="hidden" name="barang" value="<?php echo $nama_barang ?>">
-                            <button type="submit" name="save_pridiksi" class="btn btn-primary">Simpan</button>
-                        </div>
-                    </form>
-                    <?php 
-                    if (isset($_POST['save_pridiksi'])) {
-                        var_dump($_POST);
-                    }
-                    ?>
+                            ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
