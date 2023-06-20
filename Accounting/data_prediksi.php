@@ -113,7 +113,7 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                                 fclose($file);
                                 // Melakukan POST API menggunakan file CSV
 
-                                $apiUrl = 'https://1a74-103-105-32-81.ngrok-free.app/prediksi';  // Ganti dengan URL API yang sesuai
+                                $apiUrl = 'https://2939-2001-448a-7025-47e7-c840-54e3-f715-a529.ngrok-free.app/prediksi';  // Ganti dengan URL API yang sesuai
                                 $postFields = [
                                     'file' => new CURLFile($filepath, 'text/csv', $filename)
                                 ];
