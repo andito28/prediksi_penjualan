@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/lg.png" rel="icon">
-  <title>CV. Laksmi Dewata - Login</title>
+  <title>Toko Sumber Harapan - Login</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -27,8 +27,8 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <img src="img/logon.png" style="width:250px; height: 250px;">
-                    <h2 class="h4 text-gray-900 mb-4"> CV. LAKSMI DEWATA</h2>
+                    <img src="img/logo/logo_sumberharapan.png" style="width:250px; height: 250px;">
+                    <h2 class="h4 text-gray-900 mb-4">Toko Sumber Harapan</h2>
                   </div>
                   <?php
                     if(isset($_GET['notif'])){

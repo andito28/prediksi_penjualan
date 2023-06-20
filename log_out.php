@@ -1,4 +1,4 @@
 <?php
- session_start();
- unset($_SESSION['masuk']);
- header("location:./index.php");?>
+session_start();
+unset($_SESSION['masuk']);
+header("location:./index.php");
