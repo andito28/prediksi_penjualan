@@ -91,7 +91,7 @@
                             $total_terjual = $row_order_b['total_terjual'];
                             ?>
                             <div class="h6 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $total_terjual; ?>
-                                Item
+                                Jumlah Barang
                                 Terjual
                             </div>
                         </div>

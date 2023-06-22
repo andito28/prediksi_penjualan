@@ -113,7 +113,7 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                                 fclose($file);
                                 // Melakukan POST API menggunakan file CSV
 
-                                $apiUrl = 'https://2939-2001-448a-7025-47e7-c840-54e3-f715-a529.ngrok-free.app/prediksi';  // Ganti dengan URL API yang sesuai
+                                $apiUrl = 'https://hostis.serveo.net/prediksi';  // Ganti dengan URL API yang sesuai
                                 $postFields = [
                                     'file' => new CURLFile($filepath, 'text/csv', $filename)
                                 ];
@@ -170,7 +170,8 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
 
                                         ?>
                                         <input type="hidden" name="bulan[]" value="<?php echo $row['bulan']; ?>">
-                                        <input type="hidden" name="jumlah_item[]" value="<?php echo $row['jumlah_item']; ?>">
+                                        <input type="hidden" name="jumlah_item[]"
+                                               value="<?php echo $row['jumlah_item']; ?>">
                                         <input type="hidden" name="tahun[]" value="<?php echo $row['tahun']; ?>">
                                         <tr>
                                             <td><?php echo $row['bulan']; ?></td>
@@ -192,8 +193,12 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                         </div>
                     </form>
                     <?php
+
                     if (isset($_POST['save_pridiksi'])) {
-                        for($i = 0; $i < count($_POST['bulan']); $i++){
+                        $nama_barang = $_POST['barang'];
+                        $query_delete = "DELETE FROM tbl_prediksi WHERE nama_barang = '$nama_barang'";
+                        mysqli_query($connect, $query_delete);
+                        for ($i = 0; $i < count($_POST['bulan']); $i++) {
                             $nama_barang = $_POST['barang'];
                             $bulan = $_POST['bulan'][$i];
                             $jumlah_item = $_POST['jumlah_item'][$i];
@@ -201,6 +206,8 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                             $query = "INSERT INTO tbl_prediksi (nama_barang, bulan, jumlah_item, tahun) VALUES ('$nama_barang', '$bulan', $jumlah_item, $tahun)";
                             mysqli_query($connect, $query);
                         }
+                        // Menampilkan alert setelah berhasil disimpan
+                        echo '<div class="alert alert-success" role="alert">Data berhasil disimpan.</div>';
 
                     }
                     ?>

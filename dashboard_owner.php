@@ -12,7 +12,7 @@ session_start();
   <meta name="description" content="">
   <meta name="author" content="">
   <link href="img/lg.PNG" rel="icon">
-  <title> CV. Laksmi Dewata - Dashboard Admin Gudang</title>
+  <title>Toko Sumber Harapan - Dashboard Admin Gudang</title>
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="css/ruang-admin.min.css" rel="stylesheet">
@@ -25,9 +25,9 @@ session_start();
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard_owner.php?p=halaman_awal_owner">
           <div class="sidebar-brand-icon">
-          <img src="img/logon.PNG" style="width: 130%; height: 150px" >
+          <img src="img/logo/logo_sumberharapan.png" style="width: 130%; height: 150px" >
         </div>
-        <div class="sidebar-brand-text mx-3">CVLD</div>
+
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item active">
