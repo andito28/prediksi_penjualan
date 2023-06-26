@@ -12,10 +12,19 @@
         <!-- Earnings (Monthly) Card Example -->
         <div class="col-xl-12 col-md-6 mb-4">
             <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <div class="row pt-3">
+                    <div class="col-md-6">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Tabel Data Penjualan</h6>
+                    </div>
+                    </div>
+                    <div class="col-md-6">
+                    <div class="card-header float-right">
+                        <a href="dashboard_accounting.php?p=create_penjualan" class="btn btn-primary">Tambah Transaksi Penjualan</a>
+                    </div>
+                    </div>
                 </div>
-                <div class="card-body">
+                <div class="card-body pt-0">
                     <div class="table-responsive p-3">
                         <table class="table align-items-center table-hover table-bordered" id="dataTableHover">
                             <thead class="thead-light">
@@ -28,25 +37,30 @@
                                 <th>Potongan</th>
                                 <th>Total Harga</th>
                                 <th>Tanggal Transaksi</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
                             include "koneksi.php";
                             $no = 1;
-                            $query_user = "SELECT * FROM tbl_penjualan";
-                            $sql_user = mysqli_query($connect, $query_user);
-                            while ($data_user = mysqli_fetch_array($sql_user)) {
+                            $query_penjualan = "SELECT * FROM tbl_penjualan";
+                            $sql_penjualan = mysqli_query($connect, $query_penjualan);
+                            while ($data_penjualan = mysqli_fetch_array($sql_penjualan)) {
                                 ?>
                                 <tr>
-                                    <td><?php echo $data_user['kode_transaksi']; ?></td>
-                                    <td><?php echo $data_user['nama_barang']; ?></td>
-                                    <td><?php echo $data_user['jumlah']; ?></td>
-                                    <td><?php echo $data_user['satuan']; ?></td>
-                                    <td><?php echo $data_user['harga']; ?></td>
-                                    <td><?php echo $data_user['potongan']; ?></td>
-                                    <td><?php echo $data_user['total_harga']; ?></td>
-                                    <td><?php echo $data_user['tanggal_transaksi']; ?></td>
+                                    <td><?php echo $data_penjualan['kode_transaksi']; ?></td>
+                                    <td><?php echo $data_penjualan['nama_barang']; ?></td>
+                                    <td><?php echo $data_penjualan['jumlah']; ?></td>
+                                    <td><?php echo $data_penjualan['satuan']; ?></td>
+                                    <td><?php echo $data_penjualan['harga']; ?></td>
+                                    <td><?php echo $data_penjualan['potongan']; ?></td>
+                                    <td><?php echo $data_penjualan['total_harga']; ?></td>
+                                    <td><?php echo $data_penjualan['tanggal_transaksi']; ?></td>
+                                    <td>
+                                        <a href="dashboard_accounting.php?p=edit_penjualan&kode_transaksi=<?php echo $data_penjualan['kode_transaksi'];?>&nama_barang=<?=$data_penjualan['nama_barang'];?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a> | 
+                                        <a href="Accounting/action/delete_penjualan.php?kode_transaksi=<?php echo $data_penjualan['kode_transaksi'];?>&nama_barang=<?=$data_penjualan['nama_barang'];?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    </td>
                                 </tr>
                                 <?php $no++;
                             }
