@@ -6,12 +6,16 @@
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Laporan Data Prediksi</li>
         </ol>
+       
+   
     </div>
     <div class="row mb-12">
         <div class="col-xl-12 col-md-6 mb-4">
             <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Tabel Data Perediksi</h6>
+                    <a href="laporan/cetak_laporan.php" target="_blank" class="btn btn-primary">Print</a> <!-- Tombol Open PDF -->
+    
                 </div>
                 <div class="card-body">
                     <div class="table-responsive p-3">
@@ -27,7 +31,6 @@
                             </thead>
                             <tbody>
                             <?php
-
                             // Query untuk mendapatkan data stok dan jumlah penjualan berdasarkan nama barang
                             $query_penjualan = "SELECT nama_barang, satuan, SUM(jumlah) AS total_terjual FROM tbl_penjualan GROUP BY nama_barang";
                             $result_penjualan = mysqli_query($connect, $query_penjualan);
@@ -79,11 +82,9 @@
 
                                 $no++;
                             }
-
                             ?>
                             </tbody>
                         </table>
-
                     </div>
                 </div>
             </div>
@@ -91,3 +92,4 @@
     </div>
 </div>
 <!---Container Fluid-->
+
