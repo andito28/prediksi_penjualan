@@ -113,7 +113,7 @@ $response = []; // Tambahkan baris ini sebelum penggunaan variabel $response
                                 fclose($file);
                                 // Melakukan POST API menggunakan file CSV
 
-                                $apiUrl = 'https://spargo.serveo.net/prediksi';  // Ganti dengan URL API yang sesuai
+                                $apiUrl = 'https://prediksi-penjualan.elayanan.info/prediksi';  // Ganti dengan URL API yang sesuai
                                 $postFields = [
                                     'file' => new CURLFile($filepath, 'text/csv', $filename)
                                 ];

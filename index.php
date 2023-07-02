@@ -27,7 +27,7 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <img src="img/logo/logo_sumberharapan.png" style="width:250px; height: 250px;">
+                    <img src="img/logo/logo_sumberharapan.png" style="width:100px; height: 100px;">
                     <h2 class="h4 text-gray-900 mb-4">Toko Sumber Harapan</h2>
                   </div>
                   <?php
