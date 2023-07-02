@@ -35,6 +35,11 @@ session_start();
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
+      <li class="nav-item">
+            <a class="nav-link" href="dashboard_owner.php?p=data_pengguna">
+                <i class="fas fa-fw fa-book"></i>
+                <span>Pengguna</span></a>
+        </li>
        <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
           aria-expanded="true" aria-controls="collapseBootstrap">
