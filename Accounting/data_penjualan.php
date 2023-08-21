@@ -20,8 +20,14 @@
                     </div>
                     <div class="col-md-6">
                     <div class="card-header float-right">
-                        <a href="dashboard_accounting.php?p=create_penjualan" class="btn btn-primary">Tambah Transaksi Penjualan</a>
+                        <a href="dashboard_accounting.php?p=create_penjualan" class="btn btn-primary">Tambah</a>
                     </div>
+                    <div class="card-header float-right" >
+                        <form action="Accounting/import/import_penjualan.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="file" id="file">
+                            <input type="submit" class="btn btn-primary"name="import" value="Import">
+                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body pt-0">

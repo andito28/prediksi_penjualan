@@ -1,6 +1,9 @@
 <?php
 include "koneksi.php";
 session_start();
+if(!$_SESSION['masuk']){
+  header("location:index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +38,12 @@ session_start();
             <a class="nav-link" href="dashboard_accounting.php?p=halaman_awal_accounting">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link" href="dashboard_accounting.php?p=data_barang">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Data Barang</span></a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="dashboard_accounting.php?p=data_stok">

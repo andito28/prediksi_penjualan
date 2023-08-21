@@ -15,37 +15,30 @@
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Nama Barang</label>
                       <div class="col-sm-10">
+                        <?php $id = "";?>
                       <select name="nama_barang" class="form-control" required="required">
                                     <option value="">Pilih Barang</option> <!-- Tambahkan opsi ini -->
                                     <?php
                                     // Ambil data nama barang dari database
-                                    $query_barang = "SELECT DISTINCT nama_barang FROM tbl_stok";
+                                    $query_barang = "SELECT * FROM tbl_barang";
                                     $result_barang = mysqli_query($connect, $query_barang);
 
                                     while ($row_barang = mysqli_fetch_array($result_barang)) {
                                         $nama_barang = $row_barang['nama_barang'];
+                                        $id = $row_barang['id'];
                                         $selected = '';
 
                                         if (isset($_POST['nama_barang']) && $_POST['nama_barang'] == $nama_barang) {
                                             $selected = 'selected';
                                         }
 
-                                        echo "<option value=\"$nama_barang\" $selected>$nama_barang</option>";
+                                        echo "<option value=\"$nama_barang\">$nama_barang</option>";
+                                      
+                                        
                                     }
                                     ?>
                     </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Satuan</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" name="satuan" required="required">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Harga</label>
-                      <div class="col-sm-10">
-                        <input type="number" class="form-control" name="harga" required="required">
+                    <input type="hidden" name="barang_id" value="<?=$id?>">
                       </div>
                     </div>
                     <div class="form-group row">

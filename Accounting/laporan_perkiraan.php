@@ -25,14 +25,17 @@
                                 <th>No</th>
                                 <th>Nama Barang</th>
                                 <th>Satuan</th>
-                                <th>Total Terjual Satu Tahun Sebelumnya</th>
-                                <th>Total Terjual Satu Tahun Berikutnya</th>
+                                <th>Total Terjual Satu Tahun Sebelumnya<br><small>(06/2022 - 05/2023)</small></th>
+                                <th>Total Terjual Satu Tahun Berikutnya<br><small>(06/2023 - 05/2024)</small></th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
                             // Query untuk mendapatkan data stok dan jumlah penjualan berdasarkan nama barang
-                            $query_penjualan = "SELECT nama_barang, satuan, SUM(jumlah) AS total_terjual FROM tbl_penjualan GROUP BY nama_barang";
+                            $query_penjualan = "SELECT nama_barang, satuan, SUM(jumlah) AS total_terjual 
+                            FROM tbl_penjualan 
+                            WHERE DATE_FORMAT(tanggal_transaksi, '%Y-%m') >= DATE_FORMAT(DATE_SUB(CURRENT_DATE(), INTERVAL 13 MONTH), '%Y-%m')
+                            GROUP BY nama_barang";
                             $result_penjualan = mysqli_query($connect, $query_penjualan);
 
                             // Query untuk menghitung total_jumlah_item dari tabel tbl_prediksi

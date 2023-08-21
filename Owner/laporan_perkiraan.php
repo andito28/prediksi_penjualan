@@ -25,8 +25,8 @@
                                 <th>No</th>
                                 <th>Nama Barang</th>
                                 <th>Satuan</th>
-                                <th>Total Terjual Satu Tahun Sebelumnya</th>
-                                <th>Total Terjual Satu Tahun Berikutnya</th>
+                                <th>Total Terjual Satu Tahun Sebelumnya<br><small>(06/2022 - 05/2023)</small></th>
+                                <th>Total Terjual Satu Tahun Berikutnya<br><small>(06/2023 - 05/2024)</small></th>
                             </tr>
                             </thead>
                             <tbody>

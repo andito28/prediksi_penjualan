@@ -25,39 +25,21 @@ $stok = mysqli_fetch_array($sql);
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Nama Barang</label>
                       <div class="col-sm-10">
-                      <select name="nama_barang" class="form-control" required="required">
-                                    <option value="">Pilih Barang</option> <!-- Tambahkan opsi ini -->
+                      <select name="barang_id" class="form-control" required="required">
                                     <?php
-                                    // Ambil data nama barang dari database
-                                    $query_barang = "SELECT DISTINCT nama_barang FROM tbl_stok";
+                                    // Ambil data dari tbl_barang untuk dropdown
+                                    $query_barang = "SELECT id, nama_barang FROM tbl_barang";
                                     $result_barang = mysqli_query($connect, $query_barang);
 
-                                    while ($row_barang = mysqli_fetch_array($result_barang)) {
-                                        $nama_barang = $row_barang['nama_barang'];
-                                        $selected = '';
-
-                                        if( $stok['nama_barang'] == $nama_barang) {
-                                            $selected = 'selected';
-                                        }
-
-                                        echo "<option value=\"$nama_barang\" $selected>$nama_barang</option>";
+                                    while ($data_barang = mysqli_fetch_array($result_barang)) {
+                                        $selected = ($data_stok['barang_id'] == $data_barang['id']) ? "selected" : "";
+                                        echo '<option value="' . $data_barang['id'] . '" ' . $selected . '>' . $data_barang['nama_barang'] . '</option>';
                                     }
                                     ?>
                     </select>
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Satuan</label>
-                      <div class="col-sm-10">
-                        <input type="text" class="form-control" name="satuan" value="<?=$stok['satuan'];?>" required="required">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label class="col-sm-2 col-form-label">Harga</label>
-                      <div class="col-sm-10">
-                        <input type="number" class="form-control" name="harga" value="<?=$stok['harga'];?>" required="required">
-                      </div>
-                    </div>
+                  
                     <div class="form-group row">
                       <label class="col-sm-2 col-form-label">Total Stok</label>
                       <div class="col-sm-10">
